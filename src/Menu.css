@@ -1,32 +1,3 @@
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-span.selected-option {
-  border-radius: 10px;
-  background: white;
-  color: green;
-  padding: 5px;
-  margin: 5px;
-}
-
-span.selected-option button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  /* padding: 0.6em 1.2em; */
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: transparent;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  color: green;
-}
-
 /* styles.css */
 
 .user-list {
@@ -54,9 +25,6 @@ h2 {
   align-items: center;
 }
 
-.user-actions {
-  position: relative;
-}
 
 .context-menu {
   position: absolute;
@@ -66,11 +34,19 @@ h2 {
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   padding: 5px;
   z-index: 1;
+  color: #141414;
+  min-width: 100px;
 }
 
 .context-menu ul {
   list-style: none;
-  padding: 0;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
 }
 
 .context-menu li {

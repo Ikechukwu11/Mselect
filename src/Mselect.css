@@ -1,0 +1,66 @@
+.tag-input-container {
+  display: flex;
+  flex-direction: column; 
+  margin: 20px;
+}
+
+.tag-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ccc;
+  padding: 5px;
+  padding: 10px;
+  font-size: 13px;
+  min-width: 400px;
+}
+
+.tag {
+  background-color: #047c77;
+  color: white;
+  padding: 1px 5px;
+  margin-right: 5px;
+  border-radius: 13px;
+  display: flex;
+}
+
+.tag-input-text {
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  padding: 10px;
+}
+
+
+.suggestions {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+.suggestions li {
+  margin: 5px 0;
+  border-bottom: 1px solid #eee;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.suggestions li span{
+  background-color: #fff;
+  color: #121212;
+}
+
+.tag-remove {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 1px 5px;
+}
+
+.tag-name {
+  margin-left: 5px;
+}

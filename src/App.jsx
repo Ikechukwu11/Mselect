@@ -1,7 +1,9 @@
 import { useState } from 'react'
 
-import './App.css'
+//import './App.css'
 import MultiSelect from './MultiSelect'
+import Mselect from "./Mselect";
+import FormComponent from './Form';
 
 function App() {
   const options = [
@@ -20,7 +22,9 @@ function App() {
   
   return (
     <>
-      <MultiSelect options={options} />
+      {/* <MultiSelect options={options} /> */}
+      {/* <Mselect options={[]} /> */}
+      <FormComponent />
     </>
   );
 }
