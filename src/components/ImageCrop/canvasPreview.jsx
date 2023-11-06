@@ -64,21 +64,20 @@ async function canvasPreview(image, crop, scale = 1, rotate = 0) {
   // ctx.putImageData(data, 0, 0);
 
   // As Base64 string
-  // return canvas.toDataURL('image/jpeg');
+  return canvas.toDataURL('image/jpeg');
 
   // As a blob
-  return new Promise((resolve, reject) => {
+ /* return new Promise((resolve) => {
     canvas.toBlob((blob) => {
       var blobUrl = URL.createObjectURL(blob);
       console.log(blobUrl);
-
-      var link = document.createElement("a");
-      link.href = blobUrl;
-      link.download = "springverify.jpg";
-
-      link.click();
+      resolve(blobUrl); 
+      //var link = document.createElement("a");
+      //link.href = blobUrl;
+      //link.download = "springverify.jpg";
+      //link.click();
     }, "image/jpeg");
-  });
+  });*/
 }
 
 

@@ -1,10 +1,7 @@
 import "./ImageCrop.css";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
-//import { BsFillCloudDownloadFill } from "react-icons/bs";
-//import { AiOutlineRotateRight } from "react-icons/ai";
-
 import { canvasPreview } from "./canvasPreview.jsx";
 
 export default function ImageCrop({url} ) {
@@ -15,6 +12,7 @@ export default function ImageCrop({url} ) {
   const [height, setHeight] = useState("");
   const [width, setWidth] = useState("");
   const [completedCrop, setCompletedCrop] = useState();
+  const [first, setFirst] = useState('');
   const imageUrl = url;
 
   const onZoom = (e) => {
@@ -30,7 +28,35 @@ export default function ImageCrop({url} ) {
   };
 
   const download = async () => {
-    await canvasPreview(imgRef.current, completedCrop, scale, rotation);
+    let uri = await canvasPreview(
+      imgRef.current,
+      completedCrop,
+      scale,
+      rotation
+    );
+    console.log('Data',uri)
+    setFirst(uri);
+    
+    // Send the Blob URL to the PHP backend
+    fetch("http://localhost/vanillacrop/test.php", {
+      method: "POST",
+      body: JSON.stringify({'image_url': uri }), // Send the Blob URL as JSON data
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.text();
+      })
+      .then((data) => {
+        console.log("Data sent to PHP backend:", data);
+      })
+      .catch((error) => {
+       console.log("Data error:", error);
+      });
   };
   const onImageLoad = (e) => {
     setHeight(e?.currentTarget?.height);
@@ -101,6 +127,7 @@ export default function ImageCrop({url} ) {
         <h5  onClick={download} >Download</h5>
         <h5 onClick={rotateRight}>Rotate</h5>
       </div>
+      {/* {first && <p><b>{first}</b></p>} */}
     </div>
   );
 }
